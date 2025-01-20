@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Question</title>
+  <style>
+    /* Overall body style */
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #ff99cc, #ff66b2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Container for the question and buttons */
+    #container {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    /* Question text style */
+    #question {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Button style */
+    .button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 25px;
+      background-color: #ff4d94;
+      color: white;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    /* Button hover effect */
+    .button:hover {
+      background-color: #ff1a66;
+      transform: translateY(-3px);
+    }
+
+    /* No button animation for disappearing */
+    #noButton {
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    /* Flowers background */
+    #flowers {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://www.w3schools.com/w3images/flowers.jpg');
+      background-size: cover;
+      background-position: center;
+      display: none;
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    /* "I love you" text styling */
+    #loveText {
+      font-size: 72px;
+      font-weight: bold;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      display: none;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+      animation: showLoveText 1s ease-in-out;
+    }
+
+    /* Animation for fade-in */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Animation for "I love you" text */
+    @keyframes showLoveText {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="question">Dear cutie ptootie, will you be my Valentine?</div>
+    <button class="button" id="yesButton" onclick="showFlowers()">Yes</button>
+    <button class="button" id="noButton" onclick="hideNoButton()">No</button>
+  </div>
+
+  <div id="flowers"></div>
+  <div id="loveText">I love you!</div>
+
+  <script>
+    function hideNoButton() {
+      document.getElementById("noButton").style.display = "none";
+    }
+
+    function showFlowers() {
+      document.getElementById("flowers").style.display = "block";
+      document.getElementById("loveText").style.display = "block";
+      document.getElementById("container").style.display = "none";
+    }
+  </script>
+</body>
+</html>
